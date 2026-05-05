@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wolf | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-dark: #0f172a;
+            --secondary-dark: #1e293b;
+            --primary-blue: #1e3a8a;
+            --accent-blue: #3b82f6;
+            --light-blue: #60a5fa;
+            --gray-dark: #6b7280;
+            --gray-light: #9ca3af;
+            --white: #ffffff;
+            --gradient-blue: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #60a5fa 100%);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: var(--primary-dark);
+            color: var(--white);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--primary-dark); }
+        ::-webkit-scrollbar-thumb { background: var(--accent-blue); border-radius: 4px; }
+        
+        /* Background Animation */
+        .bg-animation {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: 
+                radial-gradient(ellipse at 20% 20%, rgba(30, 58, 138, 0.4) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(59, 130, 246, 0.3) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(15, 23, 42, 1) 0%, rgba(30, 41, 59, 1) 100%);
+            animation: bgPulse 10s ease-in-out infinite;
+        }
+        @keyframes bgPulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.8; } }
+        
+        .floating-shapes { position: absolute; width: 100%; height: 100%; }
+        .shape { position: absolute; border: 2px solid rgba(59, 130, 246, 0.15); border-radius: 50%; animation: float 20s infinite ease-in-out; }
+        .shape:nth-child(1) { width: 300px; height: 300px; top: 10%; left: 10%; }
+        .shape:nth-child(2) { width: 200px; height: 200px; top: 60%; right: 10%; animation-delay: -5s; }
+        .shape:nth-child(3) { width: 150px; height: 150px; bottom: 20%; left: 30%; animation-delay: -10s; }
+        .shape:nth-child(4) { width: 250px; height: 250px; top: 30%; right: 30%; animation-delay: -15s; }
+        @keyframes float { 0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.3; } 25% { transform: translateY(-30px) rotate(90deg); opacity: 0.5; } 50% { transform: translateY(0) rotate(180deg); opacity: 0.3; } 75% { transform: translateY(30px) rotate(270deg); opacity: 0.5; } }
+        
+        .particles { position: absolute; width: 100%; height: 100%; }
+        .particle { position: absolute; width: 4px; height: 4px; background: var(--accent-blue); border-radius: 50%; animation: particleFloat 15s infinite; opacity: 0.6; }
+        @keyframes particleFloat { 0%, 100% { transform: translateY(100vh) scale(0); opacity: 0; } 10% { opacity: 0.6; } 90% { opacity: 0.6; } 100% { transform: translateY(-100vh) scale(1); opacity: 0; } }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            b…
